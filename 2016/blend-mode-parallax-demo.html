@@ -1,0 +1,82 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Noah Rocket Rezentes">
+  <meta name="description" content="All kinds of info about Noah Rocket Rezentes.">
+  <meta name="keywords" content="noah rezentes, noah, rezentes, rocket, yung.in, yungin, yung, .in, in, dev">
+  <link rel="shortcut icon" type="image/png" href="//noahrezentes.github.io/favicon.png">
+  <title>Blend Mode Parallax Divs</title>
+  <style>
+    body {
+      background: #f4f4f4;
+    }
+    .app {
+      -webkit-filter: url("#goo");
+              filter: url("#goo");
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: NONE;
+    }
+    .cursor {
+      display: none;
+    }
+    .thing {
+      position: absolute;
+      margin: auto;
+      mix-blend-mode: difference;
+    }
+    .thing.first {
+      left: 0;
+      right: 120px;
+      top: 0;
+      bottom: 120px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #e7524b;
+    }
+    .thing.second {
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 200px;
+      height: 200px;
+      background: #efca00;
+      border-radius: 50%;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="thing first"></div>
+    <div class="thing second"></div>
+    <div class="cursor"></div>
+  </div>
+</body>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script defer src="http://lab3d.io/experiments/parallax/jquery.parallax.js"></script>
+<script>
+  $(document).on('mousemove', function(e){
+      $('.cursor').css({
+         left:  e.pageX - 50,
+         top:   e.pageY - 50
+      });
+  });
+
+  $(document).ready(function(){
+    $('.second').parallax({
+      mouseport: $('.app'),
+      xparallax: -.1,
+      yparallax: -.1
+    });
+    $('.first').parallax({
+      mouseport: $('.app'),
+      xparallax: .5,
+      yparallax: .5
+    });
+  });
+</script>
