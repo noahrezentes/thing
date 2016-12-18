@@ -91,13 +91,12 @@
 				-webkit-transform: translateY(3em);
 			}
 		}
-		@media only screen and (orientation: portrait) {
+		@media screen and (orientation: portrait) {
 			* {
 				font-size: 8px;
 			}
 		}
 	</style>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 <body>
 	<div class="main">
@@ -106,11 +105,13 @@
 		<div class="yellow"></div>
 		<div class="green"></div>
 	</div>
-	<script>
+</body>
+
+<script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     $(document).ready(function() {
       $(".main").click(function() {
-        $(".main *").toggleClass("recording");
+	$(".main *").toggleClass("recording");
       });
     });
-	</script>
-</body>
+</script>
